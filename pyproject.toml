@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "openlm"
-version = "0.0.1"
+version = "0.0.2"
 description = "Drop-in OpenAI-compatible that can call LLMs from other providers"
 authors = ["Matt Rickard <pypi@matt-rickard.com>"]
 maintainers = ["Matt Rickard <pypi@matt-rickard.com>"]
