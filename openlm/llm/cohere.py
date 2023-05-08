@@ -61,7 +61,7 @@ class Cohere(BaseModel):
         payload_str = json.dumps({k: v for k, v in payload.items() if v is not None})
         resp = requests.post(self.base_url, headers=headers, data=payload_str)
         if resp.status_code != 200:
-            raise ValueError(resp.status_code, resp.text, self.base_url)
+            raise ValueError(resp.status_code, resp.text)
         return self._convert_response(resp.json())
 
     def _convert_request(req):

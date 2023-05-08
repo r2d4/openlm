@@ -86,20 +86,8 @@ class OpenAI(BaseModel):
             'usage': response['usage'],
         }
 
-    def list_models(cls):
-        return [
-            'text-davinci-003', 
-            'text-davinci-002', 
-            'text-curie-001', 
-            'text-babbage-001', 
-            'text-ada-001',
-            
-            # aliases
-            'ada',
-            'babbage',
-            'curie',
-            'davinci',
-        ]
+    def list_models(self):
+        return self.model_list
     
     def namespace(self):
         return self._namespace

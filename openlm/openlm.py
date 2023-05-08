@@ -95,29 +95,37 @@ class Completion():
         if model not in cls.aliases:
             raise ValueError(f"Model {model} not found. OpenLM currently supports the following models:\n{cls._pretty_list_models()}")
         fqn = cls.aliases[model]
-        ret = cls.models[fqn].create_completion(
-            model=fqn[len(cls.models[fqn].namespace())+1:],
-            prompt=prompt, 
-            suffix=suffix, 
-            max_tokens=max_tokens, 
-            temperature=temperature, 
-            top_p=top_p, 
-            n=n, 
-            stream=stream, 
-            logprobs=logprobs, 
-            echo=echo, 
-            stop=stop, 
-            presence_penalty=presence_penalty, 
-            frequency_penalty=frequency_penalty, 
-            best_of=best_of, 
-            logit_bias=logit_bias, 
-            user=user)
+        try:
+            ret = cls.models[fqn].create_completion(
+                model=fqn[len(cls.models[fqn].namespace())+1:],
+                prompt=prompt, 
+                suffix=suffix, 
+                max_tokens=max_tokens, 
+                temperature=temperature, 
+                top_p=top_p, 
+                n=n, 
+                stream=stream, 
+                logprobs=logprobs, 
+                echo=echo, 
+                stop=stop, 
+                presence_penalty=presence_penalty, 
+                frequency_penalty=frequency_penalty, 
+                best_of=best_of, 
+                logit_bias=logit_bias, 
+                user=user)
+        except Exception as e:
+            ret = {
+                'error': f"Error: {e}"
+            }
         choice = {
             "id": str(uuid.uuid4()),
             "model_name": fqn,
             'created': int(time.time()),
-            'text': ret['text'],
         }
+        if 'error' in ret:
+            choice['error'] = ret['error']
+        if 'text' in ret:
+            choice['text'] = ret['text']
         if 'usage' in ret:
             choice['usage'] = ret['usage']
         if 'extra' in ret:
