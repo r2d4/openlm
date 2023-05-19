@@ -9,6 +9,9 @@ import requests
 hf_models = [
     'gpt2',
     'distilgpt2',
+    'gpt2-large',
+    'gpt2-medium',
+    'gpt2-xl',
 
     'bigscience/bloom-560m',
     'bigscience/bloom-1b',
@@ -42,6 +45,22 @@ hf_models = [
     
     'stabilityai/stablelm-tuned-alpha-3b',
     'stabilityai/stablelm-tuned-alpha-7b',
+
+    'facebook/opt-125m',
+    'facebook/opt-350m',
+    'facebook/opt-1.3b',
+    'facebook/opt-2.7b',
+    'facebook/opt-6.7b',
+    'facebook/opt-13b',
+    'facebook/opt-30b',
+
+    'mosaicml/mpt-7b',
+    'mosaicml/mpt-7b-instruct',
+    
+    'databricks/dolly-v2-7b',
+    'databricks/dolly-v2-12b',
+
+
 ]
 
 class Huggingface(BaseModel):
