@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "openlm"
-version = "0.0.3"
+version = "0.0.4"
 description = "Drop-in OpenAI-compatible that can call LLMs from other providers"
 authors = ["Matt Rickard <pypi@matt-rickard.com>"]
 maintainers = ["Matt Rickard <pypi@matt-rickard.com>"]
@@ -33,7 +33,7 @@ urls = { repository = "https://github.com/r2d4/openlm" }
 
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4.0"
-requests = "^2.30.0"
+requests = "^2"
 
 
 [build-system]
