@@ -29,7 +29,8 @@ class Completion():
                                 best_of: Optional[int] = None,
                                 logit_bias: Optional[Dict[str, float]] = None,
                                 user: Optional[str] = None,
-                                api_keys: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
+                                api_keys: Optional[Dict[str, str]] = None,
+                                request_timeout=0) -> Dict[str, Any]:
         """
         Creates a completion request for the OpenAI API.
 
